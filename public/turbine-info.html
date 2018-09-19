@@ -23,11 +23,11 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Site Information Page</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Client Infomration Page<span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="turbine-info.html">Turbine Information Page</a>
+          <a class="nav-link" href="clientinfo.html">Client Infomration Page</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Turbine Information Page<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
@@ -36,73 +36,84 @@
       <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Client Name</th>
-      <th scope="col" style="width:45%">Client Description</th>
-      <th scope="col">GICS Sector</th>
-      <th scope="col">GICS SubIndustry</th>
-      <th scope="col">Headquarters</th>
-      <th scope="col">Notes</th>
+      <th scope="col">Turbine ID</th>
+      <th scope="col">Site Name</th>
+      <th scope="col">Capacity (mw)</th>
+      <th scope="col">Ramp Up Time (hrs)</th>
+      <th scope="col">Last Planned Outage</th>
+      <th scope="col">Last Unplanned Outage</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Hoosier Energy</td>
-      <td>Hoosier Energy is a generation and transmission cooperative providing wholesale electric wind power and services to 18 member distribution cooperatives in central and southern Indiana and southeastern Illinois. Based in Bloomington, Indiana, Hoosier Energy operates renewable energy power plants and delivers power through nearly 1700 miles of transmission network.
-</td>
-      <td>Energy</td>
+      <td>Emerald Waters Plant</td>
+      <td>429</td>
+      <td>12</td>
+      <td>6/1/2016</td>
+      <td>NULL</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Smith Energy Complex</td>
+      <td>280</td>
+      <td>10</td>
+      <td>6/1/2016</td>
       <td>
-        Energy Production
-      </td>
-      <td>
-        Bloomington, IN
-      </td>
-      <td>
-        The last meeting went well and we agreed to do some maintainence work in one of their turbines according to the SLA
+        5/13/2013
       </td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Pacific Tidal Energy</td>
-      <td>Pacfici Tidal Energy makes life better for millions of people every day by providing sustainable tidal energy generation services â€“ affordable, reliable and clean. Pacific Tidal is the largest tidal electric power holding company in the United States, supplying and delivering energy through local utilities to approximately 7.4 million U.S. customers.
-</td>
-      <td>Energy</td>
+      <th scope="row">4</th>
+      <td>King County Farm</td>
+      <td>82</td>
+      <td>29</td>
+      <td>6/1/2016</td>
       <td>
-        Energy Service
-      </td>
-      <td>
-        Charlotte, NC
-      </td>
-      <td>
-
+        4/13/2015
       </td>
     </tr>
   </tbody>
 </table>
-<form class="clientnotes">
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputState">Choose Client</label>
-      <select id="inputState" class="form-control">
-        <option selected>Hoosier Energy</option>
-        <option>Pacific Tidal</option>
-      </select>
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="img/images.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">KPI of Turbine 1</h5>
+      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments</p>
     </div>
-  <div class="form-group">
-    <label for="inputAddress2">Notes</label>
-    <input type="text" class="form-control" id="clientnotes" placeholder="Updated meeting notes, progress etc.">
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
   </div>
+  <div class="card">
+    <img class="card-img-top" src="img/images.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">KPI of Turbine 3</h5>
+      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments.</p>
     </div>
-  <button type="submit" class="btn btn-primary">Add Note</button>
-</form>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/images.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">KPI of Turbine 4</h5>
+      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
     </main>
     <!-- Footer -->
     <footer class="page-footer font-small special-color-dark pt-4">
 
         <!-- Footer Elements -->
         <div class="container">
-
           <!-- Social buttons -->
           <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
