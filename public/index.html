@@ -7,27 +7,26 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/main.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/main.css">
   <title>Alternate Green Systems</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Alternate Green Systems</a>
+    <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Site Information Page<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Client Information</a>
+          <a class="nav-link" href="clientinfo.html">Client Information</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Turbine Information</a>
+          <a class="nav-link" href="turbine-info.html">Turbine Information</a>
         </li>
       </ul>
     </div>
@@ -41,7 +40,7 @@
             <p class="card-text"><small class="text-muted">1729 Ocean Bluff Road, Brownsmead OR</small></p>
             <p class="card-text">The Emerald Waters Plant is a tidal field located at the mouth of the Columbia River, several miles west of Vancouver, Washington. Emerald Waters' first unit began commercial service in 1994, and its second unit followed in 1998.</p>
             <p>Turbine Name: 3SA.01</p>
-            <p>Status: Good</p>
+            <p>Status : <input class="btn btn-success" type="button" value="Good"></p>
           </div>
         </div>
         <div class="card">
@@ -51,7 +50,7 @@
             <p class="card-text"><small class="text-muted">328 Energy Way, Snowflake, AZ</small></p>
             <p class="card-text">The Jingleheimer Smith Jr. Energy Complex, south of Snowflake, AZ, includes five large solar fields that generate 1,084 MW. The site began commercial operation in 2001, with additions in 2002 and 2011.</p>
             <p>Turbine Name: W7B.01</p>
-            <p>Status: Needs Maintenance</p>
+            <p>Status : <input class="btn btn-danger" type="button" value="Needs Attention"></p>
           </div>
         </div>
         <div class="card">
@@ -61,19 +60,20 @@
             <p class="card-text"><small class="text-muted">807 Green Field Rd, Titonka, IA</small></p>
             <p class="card-text">The 520-megawatt King County Wind Farm consists of five fields of wind turbine units, and is part of the Tesla Energy Complex near Saphire Lake, Iowa. The plant began operation in 2000 with an addition in 2009.</p>
             <p>Turbine Name: SF9.06</p>
-            <p>Status: Good</p>
+            <p>Status : <input class="btn btn-success" type="button" value="Good"></p>
           </div>
         </div>
       </div>
     </main>
     <!-- Footer -->
     <footer class="page-footer font-small special-color-dark pt-4">
-
         <!-- Footer Elements -->
         <div class="container">
-
           <!-- Social buttons -->
           <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+              &copy; Alternative Green Systems
+            </li>
             <li class="list-inline-item">
               <a class="btn-floating btn-fb mx-1">
                 <i class="fa fa-facebook"> </i>
@@ -104,13 +104,6 @@
 
         </div>
         <!-- Footer Elements -->
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-          <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
-
       </footer>
       <!-- Footer -->
   </body>
