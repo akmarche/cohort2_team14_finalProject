@@ -47,6 +47,6 @@ class Client
       $this->gicsSubIndustry,
       $this->headquarters,
     ]);
-    $this->id = $db->lastInsertId();
+    $this->clientId = $db->lastInsertId();
   }
 }
