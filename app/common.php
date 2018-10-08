@@ -9,3 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 require 'environment.php';
 /** MODELS **/
 require 'models/Client.php';
+require 'models/Site.php';
+require 'models/Turbine.php';
