@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Client;
 CREATE TABLE Client (
   clientId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
   clientName VARCHAR(30) NOT NULL,
-  clientDescription VARCHAR(240) NOT NULL,
+  clientDescription VARCHAR(500) NOT NULL,
   gicsSector VARCHAR(30) NOT NULL,
   gicsSubIndustry VARCHAR(30) NOT NULL,
   headquarters VARCHAR(50) NOT NULL
@@ -15,7 +15,7 @@ CREATE TABLE Site(
     siteId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     clientId INTEGER NOT NULL,
     siteName VARCHAR(50) NOT NULL,
-    siteDescription VARCHAR(240),
+    siteDescription VARCHAR(500),
     primaryContact VARCHAR(50),
     capacity INTEGER,
     commercialDate DATE,
@@ -33,10 +33,10 @@ DROP TABLE IF EXISTS Turbine;
 CREATE TABLE Turbine(
     turbineId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     turbineName VARCHAR(50) NOT NULL,
-    turbineDescription VARCHAR(240),
+    turbineDescription VARCHAR(500),
     capacity INTEGER,
     rampUpTime INTEGER,
-    maintenanceInterval INTEGER,
+    maintenanceInterval INTEGER
 );
 
 DROP TABLE IF EXISTS TurbineDeployed;
@@ -51,7 +51,7 @@ CREATE TABLE TurbineDeployed(
     totalStarts INTEGER,
     lastPlannedOutageDate DATE,
     lastUnplannedOutageDate DATE,
-    CONSTRAINT siteId_fk FOREIGN KEY (siteId) REFERENCES Site (siteId)
+    CONSTRAINT siteId_fk FOREIGN KEY (siteId) REFERENCES Site (siteId),
     CONSTRAINT turbineId_fk FOREIGN KEY (turbineId) REFERENCES Turbine (turbineId)
 );
 
@@ -60,9 +60,9 @@ DROP TABLE IF EXISTS Sensor;
 CREATE TABLE Sensor(
     sensorId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     sensorName VARCHAR(50) NOT NULL,
-    sensorDescription VARCHAR(240),
-    manufacturer VARCHAR(100)
-    totalLifeExpectancyHours INTEGER,
+    sensorDescription VARCHAR(500),
+    manufacturer VARCHAR(100),
+    totalLifeExpectancyHours INTEGER
 );
 
 DROP TABLE IF EXISTS SensorDeployed;
@@ -73,7 +73,7 @@ CREATE TABLE SensorDeployed(
     turbineDeployedId INTEGER NOT NULL,
     serialNumber VARCHAR(50) NOT NULL,
     deployedDate DATE,
-    CONSTRAINT sensorId_fk FOREIGN KEY (sensorId) REFERENCES Sensor (sensorId)
+    CONSTRAINT sensorId_fk FOREIGN KEY (sensorId) REFERENCES Sensor (sensorId),
     CONSTRAINT turbineDeployedId_fk FOREIGN KEY (turbineDeployedId) REFERENCES TurbineDeployed (turbineDeployedId)
 );
 
@@ -90,6 +90,6 @@ CREATE TABLE SensorTimeSeries(
     firedHours VARCHAR(50),
     trips INTEGER,
     starts INTEGER,
-    PRIMARY KEY (sensorDeployedId, dataCollectedDate)
+    PRIMARY KEY (sensorDeployedId, dataCollectedDate),
     CONSTRAINT sensorDeployedId_fk FOREIGN KEY (sensorDeployedId) REFERENCES SensorDeployed (sensorDeployedId)
 );

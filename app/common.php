@@ -8,4 +8,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 }
 require 'environment.php';
 /** MODELS **/
-require 'models/Comment.php';
+require 'models/Client.php';
