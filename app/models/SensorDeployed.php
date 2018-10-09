@@ -9,10 +9,10 @@ class SensorDeployed
 
   public function __construct($data) {
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
-    $this->sensorId = $data['sensorId'];
-    $this->turbineDeployedId = $data['turbineDeployedId'];
-    $this->serialNumber = isset($data['serialNumber']) ? intval($data['serialNumber']) : null;
-    $this->deployedDate = isset($data['deployedDate']) ? intval($data['deployedDate']) : null;
+    $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
+    $this->turbineDeployedId = isset($data['turbineDeployedId']) ? intval($data['turbineDeployedId']) : null;
+    $this->serialNumber = $data['serialNumber'];
+    $this->deployedDate = $data['deployedDate'];
   }
 
   public static function fetchAll() {

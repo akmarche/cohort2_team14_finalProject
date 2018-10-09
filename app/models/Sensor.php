@@ -12,7 +12,7 @@ class Sensor
     $this->sensorName = $data['sensorName'];
     $this->sensorDescription = $data['sensorDescription'];
     $this->manufacturer = $data['manufacturer'];
-    $this->totalLifeExpentancyHours = $data['totalLifeExpentancyHours'];
+    $this->totalLifeExpentancyHours = isset($data['totalLifeExpentancyHours']) ? intval($data['totalLifeExpentancyHours']) : null;
   }
 
   public static function fetchAll() {
