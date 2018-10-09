@@ -15,9 +15,6 @@ var turbineApp = new Vue({
   computed: {
   },
   methods: {
-    pretty_date: function (d) {
-      return moment(d).format('l')
-    },
     fetchTurbine () {
       fetch('api/turbine.php')
       .then( response => response.json() )
