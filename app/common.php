@@ -10,3 +10,5 @@ require 'environment.php';
 /** MODELS **/
 require 'models/Client.php';
 require 'models/Turbine.php';
+require 'models/SensorTimeSeries.php';
+require 'models/TurbineDeployed.php';
