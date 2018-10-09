@@ -5,14 +5,14 @@ class Sensor
   public $sensorName;
   public $sensorDescription;
   public $manufacturer;
-  public $totalLifeExpentancyHours;
+  public $totalLifeExpectancyHours;
 
   public function __construct($data) {
     $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
     $this->sensorName = $data['sensorName'];
     $this->sensorDescription = $data['sensorDescription'];
     $this->manufacturer = $data['manufacturer'];
-    $this->totalLifeExpentancyHours = isset($data['totalLifeExpentancyHours']) ? intval($data['totalLifeExpentancyHours']) : null;
+    $this->totalLifeExpectancyHours = isset($data['totalLifeExpectancyHours']) ? intval($data['totalLifeExpectancyHours']) : null;
   }
 
   public static function fetchAll() {
