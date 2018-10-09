@@ -32,47 +32,26 @@
       </ul>
     </div>
   </nav>
-    <main>
-      <table class="table table-hover">
+    <main id="turbine">
+      <table class="table table-hover" id="turbineTable">
   <thead>
     <tr>
       <th scope="col">Turbine ID</th>
-      <th scope="col">Site Name</th>
-      <th scope="col">Capacity (mw)</th>
-      <th scope="col">Ramp Up Time (hrs)</th>
-      <th scope="col">Last Planned Outage</th>
-      <th scope="col">Last Unplanned Outage</th>
+      <th scope="col">Turbine Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Ramp Up Time</th>
+      <th scope="col">Maintenance Interval</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Emerald Waters Plant</td>
-      <td>429</td>
-      <td>12</td>
-      <td>6/1/2016</td>
-      <td>NULL</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Smith Energy Complex</td>
-      <td>280</td>
-      <td>10</td>
-      <td>6/1/2016</td>
-      <td>
-        5/13/2013
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>King County Farm</td>
-      <td>82</td>
-      <td>29</td>
-      <td>6/1/2016</td>
-      <td>
-        4/13/2015
-      </td>
+    <tr v-for="turbine in turbines">
+      <th scope="row">{{turbine.turbineId}}</th>
+      <td>{{turbine.turbineName}}</td>
+      <td>{{turbine.turbineDescription}}</td>
+      <td>{{turbine.capacity}}</td>
+      <td>{{turbine.rampUpTime}}</td>
+      <td>{{turbine.maintenanceInterval}}</td>
     </tr>
   </tbody>
 </table>
@@ -151,5 +130,12 @@
 
       </footer>
       <!-- Footer -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+      <!-- development version, includes helpful console warnings -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/turbine.app.js"></script>
+
+      <script src="js/tablesort.min.js"></script>
   </body>
   </html>
