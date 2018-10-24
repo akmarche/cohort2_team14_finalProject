@@ -1,4 +1,4 @@
 <?php
 $client = new Client($_POST);
-$client->create();
+$client->addNotes();
 echo json_encode($client);

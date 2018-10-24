@@ -32,7 +32,7 @@
       </ul>
     </div>
   </nav>
-    <main>
+    <main id="clientTable">
       <table class="table table-hover">
   <thead>
     <tr>
@@ -46,37 +46,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Hoosier Energy</td>
-      <td>Hoosier Energy is a generation and transmission cooperative providing wholesale electric wind power and services to 18 member distribution cooperatives in central and southern Indiana and southeastern Illinois. Based in Bloomington, Indiana, Hoosier Energy operates renewable energy power plants and delivers power through nearly 1700 miles of transmission network.
-</td>
-      <td>Energy</td>
-      <td>
-        Energy Production
-      </td>
-      <td>
-        Bloomington, IN
-      </td>
-      <td>
-        The last meeting went well and we agreed to do some maintainence work in one of their turbines according to the SLA
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Pacific Tidal Energy</td>
-      <td>Pacfici Tidal Energy makes life better for millions of people every day by providing sustainable tidal energy generation services â€“ affordable, reliable and clean. Pacific Tidal is the largest tidal electric power holding company in the United States, supplying and delivering energy through local utilities to approximately 7.4 million U.S. customers.
-</td>
-      <td>Energy</td>
-      <td>
-        Energy Service
-      </td>
-      <td>
-        Charlotte, NC
-      </td>
-      <td>
-
-      </td>
+    <tr v-for="c in clients">
+      <th scope="row">{{c.id}}</th>
+      <td>{{c.clientId}}</td>
+      <td>{{c.clientName}}</td>
+      <td>{{c.clientDescription}}</td>
+      <td>{{c.gicsSector}}</td>
+      <td>{{c.gicsSubIndustry}}</td>
+      <td>{{c.headquarters}}</td>
+      <td>{{c.notes}}</td>
     </tr>
   </tbody>
 </table>
