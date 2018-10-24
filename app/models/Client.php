@@ -7,6 +7,7 @@ class Client
   public $gicsSector;
   public $gicsSubIndustry;
   public $headquarters;
+  public $notes;
 
   public function __construct($data) {
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
@@ -15,6 +16,7 @@ class Client
     $this->gicsSector = $data['gicsSector'];
     $this->gicsSubIndustry = $data['gicsSubIndustry'];
     $this->headquarters = $data['headquarters'];
+    $this->notes = $data['notes'];
   }
 
   public static function fetchAll() {
@@ -34,19 +36,13 @@ class Client
     return $arr;
   }
 
-  public function create() {
+  public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT Client (clientId, clientName, clientDescription, gicsSector, gicsSubIndustry,headquarters)
-            VALUES (?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT Client (notes)
+            VALUES (?) WHERE clientName = ';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
-      $this->clientId,
-      $this->clientName,
-      $this->clientDescription,
-      $this->gicsSector,
-      $this->gicsSubIndustry,
-      $this->headquarters,
+      $this->notes;
     ]);
-    $this->clientId = $db->lastInsertId();
   }
 }
