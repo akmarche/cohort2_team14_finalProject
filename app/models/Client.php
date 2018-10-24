@@ -42,7 +42,13 @@ class Client
             VALUES (?) WHERE clientName = ';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
-      $this->notes;
+      $this->clientId,
+      $this->clientName,
+      $this->clientDescription,
+      $this->gicsSector,
+      $this->gicsSubIndustry,
+      $this->headquarters,
     ]);
+    $this->clientId = $db->lastInsertId();
   }
 }
