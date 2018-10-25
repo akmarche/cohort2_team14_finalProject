@@ -47,8 +47,8 @@ var clientApp = new Vue({
     },
     getEmptyNotesForm() {
       return {
-        description: null,
-        value: null
+        clientName: null,
+        notes: null
       }
     },
     fetchClient () {
