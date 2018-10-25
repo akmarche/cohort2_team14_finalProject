@@ -11,7 +11,7 @@ class Note
 
   public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = "UPDATE Client SET notes = '$notes' WHERE clientName = '$clientName'";
+    $sql = "UPDATE Client SET notes = '$this->notes' WHERE clientName = '$this->clientName'";
     $statement = $db->prepare($sql);
     $success = $statement->execute([
       $this->notes,
