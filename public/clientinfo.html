@@ -53,7 +53,10 @@
       <td>{{c.gicsSector}}</td>
       <td>{{c.gicsSubIndustry}}</td>
       <td>{{c.headquarters}}</td>
-      <td>{{c.notes}}</td>
+      <td>
+        <tr v-for="n in notes">
+        <td>{{n.notes}}</td>
+      </tr></td>
     </tr>
   </tbody>
 </table>
