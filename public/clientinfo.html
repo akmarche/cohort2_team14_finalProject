@@ -47,8 +47,7 @@
   </thead>
   <tbody>
     <tr v-for="c in clients">
-      <th scope="row">{{c.id}}</th>
-      <td>{{c.clientId}}</td>
+      <th scope="row">{{c.clientId}}</th>
       <td>{{c.clientName}}</td>
       <td>{{c.clientDescription}}</td>
       <td>{{c.gicsSector}}</td>
@@ -58,18 +57,18 @@
     </tr>
   </tbody>
 </table>
-<form class="clientnotes">
+<form class="clientnotes" id="clientNotesForm" @submit.prevent="handleNotesForm">
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">Choose Client</label>
-      <select id="inputState" class="form-control">
+      <select id="inputState" class="form-control" v-model="notesForm.value">
         <option selected>Hoosier Energy</option>
         <option>Pacific Tidal</option>
       </select>
     </div>
   <div class="form-group">
     <label for="inputAddress2">Notes</label>
-    <input type="text" class="form-control" id="clientnotes" placeholder="Updated meeting notes, progress etc.">
+    <input type="text" class="form-control" id="clientnotes" v-model="notesForm.description" placeholder="Updated meeting notes, progress etc.">
   </div>
     </div>
   <button type="submit" class="btn btn-primary">Add Note</button>

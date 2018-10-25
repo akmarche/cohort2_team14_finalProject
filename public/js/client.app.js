@@ -11,11 +11,46 @@ var clientApp = new Vue({
       headquarters : '',
       notes: ''
     }
-  ]
+  ],
+  notes:[
+    {
+      clientName: '',
+      notes: ''
+    }
+  ],
+  notesForm: {},
   },
   computed: {
   },
   methods: {
+    handleNotesForm(e){
+      const s = JSON.stringify(this.notesForm);
+
+      console.log(s);
+
+      // POST to remote server
+      fetch('api/client.php', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: s // body data type must match "Content-Type" header
+      })
+      .then( response => response.json() )
+      .then( json => {this.notes.push(json)})
+      .catch( err => {
+        console.error('WORK POST ERROR:');
+        console.error(err);
+      })
+
+        this.notesForm = this.getEmptyNotesForm();
+    },
+    getEmptyNotesForm() {
+      return {
+        description: null,
+        value: null
+      }
+    },
     fetchClient () {
       fetch('api/client.php')
       .then( response => response.json() )
@@ -27,6 +62,7 @@ var clientApp = new Vue({
     },
   },
   created () {
+    this.notesForm = this.getEmptyNotesForm();
     this.fetchClient();
   }
 })

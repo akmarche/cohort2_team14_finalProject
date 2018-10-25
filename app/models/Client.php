@@ -38,17 +38,10 @@ class Client
 
   public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT Client (notes)
-            VALUES (?) WHERE clientName = ';
+    $sql = 'UPDATE Client SET notes = ? WHERE clientName = ?';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
-      $this->clientId,
-      $this->clientName,
-      $this->clientDescription,
-      $this->gicsSector,
-      $this->gicsSubIndustry,
-      $this->headquarters,
+      $this->notes,
     ]);
-    $this->clientId = $db->lastInsertId();
   }
 }
