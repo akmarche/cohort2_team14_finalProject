@@ -72,5 +72,6 @@ var clientApp = new Vue({
   created () {
     this.notesForm = this.getEmptyNotesForm();
     this.fetchClient();
+    this.fetchNotes();
   }
 })
