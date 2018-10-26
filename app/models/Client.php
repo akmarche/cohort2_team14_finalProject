@@ -35,13 +35,4 @@ class Client
     }
     return $arr;
   }
-
-  public function addNotes() {
-    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'UPDATE Client SET notes = ? WHERE clientName = ?';
-    $statement = $db->prepare($sql);
-    $success = $statement->execute([
-      $this->notes,
-    ]);
-  }
 }

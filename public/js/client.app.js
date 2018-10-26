@@ -12,9 +12,9 @@ var clientApp = new Vue({
       notes: ''
     }
   ],
-  notes:[
+  clientNotes:[
     {
-      clientName: '',
+      clientId: '',
       notes: ''
     }
   ],
@@ -29,7 +29,7 @@ var clientApp = new Vue({
       console.log(s);
 
       // POST to remote server
-      fetch('api/client.php', {
+      fetch('api/note.php', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
             "Content-Type": "application/json; charset=utf-8"
@@ -37,7 +37,7 @@ var clientApp = new Vue({
         body: s // body data type must match "Content-Type" header
       })
       .then( response => response.json() )
-      .then( json => {this.notes.push(json)})
+      .then( json => {this.clientNotes.push(json)})
       .catch( err => {
         console.error('WORK POST ERROR:');
         console.error(err);
@@ -47,7 +47,7 @@ var clientApp = new Vue({
     },
     getEmptyNotesForm() {
       return {
-        clientName: null,
+        clientId: null,
         notes: null
       }
     },
@@ -56,10 +56,19 @@ var clientApp = new Vue({
       .then( response => response.json() )
       .then( json => {clientApp.clients = json} )
       .catch( err => {
-        console.log('TASK FETCH ERROR:');
+        console.log('CLIENT FETCH ERROR:');
         console.log(err);
       })
     },
+    fetchNotes(){
+      fetch('api/note.php')
+      .then(response => response.json() )
+      .then (json => {clientApp.clientNotes = json})
+      .catch(err => {
+        console.log('NOTES FETCH ERROR: ');
+        console.log(err);
+      })
+    }
   },
   created () {
     this.notesForm = this.getEmptyNotesForm();
