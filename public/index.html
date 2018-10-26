@@ -41,6 +41,8 @@
             <h5 class="card-title">{{s.siteName}}</h5>
             <p class="card-text"><small class="text-muted">{{s.addrLine1}}, {{s.addrState}}</small></p>
             <p class="card-text">{{s.siteDescription}}</p>
+          </div>
+          <div class="card-body" v-for="t in turbines">
             <p>Turbine Name: {{t.turbineName}}</p>
             <p>Status:</p>
           </div>
