@@ -7,7 +7,6 @@ class Client
   public $gicsSector;
   public $gicsSubIndustry;
   public $headquarters;
-  public $notes;
 
   public function __construct($data) {
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
@@ -16,7 +15,6 @@ class Client
     $this->gicsSector = $data['gicsSector'];
     $this->gicsSubIndustry = $data['gicsSubIndustry'];
     $this->headquarters = $data['headquarters'];
-    $this->notes = $data['notes'];
   }
 
   public static function fetchAll() {
