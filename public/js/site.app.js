@@ -26,7 +26,7 @@ var siteApp = new Vue({
     fetchSite () {
       fetch('api/site.php')
       .then( response => response.json() )
-      .then( json => {turbineApp.sites = json} )
+      .then( json => {siteApp.sites = json} )
       .catch( err => {
         console.log('TASK FETCH ERROR');
         console.log(err);
