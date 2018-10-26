@@ -8,8 +8,7 @@ var clientApp = new Vue({
       clientDescription : '',
       gicsSector : '',
       gicsSubIndustry : '',
-      headquarters : '',
-      notes: ''
+      headquarters : ''
     }
   ],
   clientNotes:[
