@@ -27,5 +27,5 @@ var turbineApp = new Vue({
   },
   created () {
     this.fetchTurbine();
-  }
+  },
 })

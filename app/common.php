@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 && stripos($_SERVER['CONTENT_TYPE'], 'application/json') !== false ) {
   $_POST = json_decode(file_get_contents('php://input'), true);
 }
+
 require 'environment.php';
 /** MODELS **/
 require 'models/Client.php';
@@ -15,3 +16,4 @@ require 'models/SensorDeployed.php';
 require 'models/Site.php';
 require 'models/SensorTimeSeries.php';
 require 'models/TurbineDeployed.php';
+require 'models/Note.php';
