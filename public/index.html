@@ -31,23 +31,19 @@
       </ul>
     </div>
   </nav>
-    <main>
+    <main id="site">
       <div class="card-group">
-        <div class="card">
-          <img class="card-img-top" src="img/t-1.jpg" alt="Card image cap">
-          <img class="card-img-top" src="img/t-2.jpg" alt="Card image cap">
-          <img class="card-img-top" src="img/images.jpg" alt="Card image cap">
-          <div class="card-body" v-for="s in sites">
-            <h5 class="card-title">{{s.siteName}}</h5>
-            <p class="card-text"><small class="text-muted">{{s.addrLine1}}, {{s.addrState}}</small></p>
-            <p class="card-text">{{s.siteDescription}}</p>
-          </div>
-          <div class="card-body" v-for="t in turbines">
-            <p>Turbine Name: {{t.turbineName}}</p>
-            <p>Status: <input class="btn btn-success" type="button" value="Good"></p>
-          </div>
+      <div class="card" v-for="s in sites">
+        <img class="card-img-top" v-bind:src="s.imgPath" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{s.siteName}}</h5>
+          <p class="card-text"><small class="text-muted">{{s.addrLine1}}, {{s.addrCity}}</small></p>
+          <p class="card-text">{{s.siteDescription}}</p>
+          <p>Turbine Name: 3SA.01</p>
+          <p>Status : <input class="btn btn-success" type="button" value="Good"></p>
         </div>
       </div>
+    </div>
     </main>
     <!-- Footer -->
     <footer class="page-footer font-small special-color-dark pt-4">
@@ -90,5 +86,7 @@
         <!-- Footer Elements -->
       </footer>
       <!-- Footer -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="js/site.app.js"></script>
   </body>
   </html>
