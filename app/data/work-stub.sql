@@ -93,3 +93,13 @@ CREATE TABLE SensorTimeSeries(
     PRIMARY KEY (sensorDeployedId, dataCollectedDate),
     CONSTRAINT sensorDeployedId_fk FOREIGN KEY (sensorDeployedId) REFERENCES SensorDeployed (sensorDeployedId)
 );
+
+
+CREATE VIEW heatRate AS
+SELECT sd.sensorId, s.heatRate, td.turbineId
+FROM SensorTimeSeries s, SensorDeployed sd, TurbineDeployed td
+WHERE s.sensorDeployedId = sd.sensorDeployedId AND td.turbineDeployedId = sd.TurbineDeployedId;
+
+Drop View If Exists heatRate;
+
+Select * from heatRate;
