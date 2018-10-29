@@ -86,5 +86,6 @@ var turbineApp = new Vue({
 
   created () {
     this.fetchTurbine();
+    this.fetchTurbineOutputKPI()
   },
 })
