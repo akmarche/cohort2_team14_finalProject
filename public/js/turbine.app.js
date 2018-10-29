@@ -35,7 +35,7 @@ var turbineApp = new Vue({
       .then( response => response.json() )
       .then( json => {
         turbineApp.output = json;
-        this.formatTurbineOutput();
+        //this.formatTurbineOutput();
         this.buildTurbineOutputChart();
       })
       .catch( err => {
