@@ -45,7 +45,7 @@ var turbineApp = new Vue({
   },
 
   buildTurbineOutputChart() {
-    Highcharts.chart('container', {
+    var turbineOutputChart = Highcharts.chart('container', {
         chart: {
             type: 'line'
         },
@@ -73,7 +73,7 @@ var turbineApp = new Vue({
         },
         series: [{
             name: 'Turbine 1',
-            data: this.output.map( turbines => [turbines.output] )
+            data: this.sensorTimeSeriesPost.map( turbines => [turbines.output] )
         }, {
             name: 'Turbine 3',
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
