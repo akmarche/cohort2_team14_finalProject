@@ -10,7 +10,10 @@ var turbineApp = new Vue({
       rampUpTime : '',
       maintenanceInterval : ''
     }
-  ]
+  ],
+  output: {
+
+  }
   },
   computed: {
   },
@@ -27,7 +30,7 @@ var turbineApp = new Vue({
   },
 
   fetchTurbineOutputKPI() {
-    fetch('api/sensorTimeSeriesPost.php')
+    fetch('api/heatrate.php')
     .then( response => response.json() )
     .then( json => {
       turbineApp.output = json;
@@ -41,19 +44,22 @@ var turbineApp = new Vue({
   },
 
   formatTurbineOutput() {
-
+    this.output.forEach(
+      (entry, index, arr) => {
+        entry.date = Date.parse(entry.date);
+      });
   },
 
   buildTurbineOutputChart() {
-    var turbineOutputChart = Highcharts.chart('container', {
+    var turbineOutputChart = Highcharts.chart('chart', {
         chart: {
-            type: 'line'
+            type: 'area'
         },
         title: {
             text: 'Daily Turbine Output'
         },
         subtitle: {
-            text: 'Source: sensorTimeSeries.csv'
+            text: ''
         },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -73,13 +79,7 @@ var turbineApp = new Vue({
         },
         series: [{
             name: 'Turbine 1',
-            data: this.sensorTimeSeriesPost.map( turbines => [turbines.output] )
-        }, {
-            name: 'Turbine 3',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }, {
-            name: 'Turbine 4',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            data: this.output.map( turbines => [turbines.output] )
         }]
     });
   },

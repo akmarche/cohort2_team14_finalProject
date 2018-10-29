@@ -1,6 +1,7 @@
 <?php
 class HeatRate
 {
+  public $dataCollectedDate;
   public $turbineId;
   public $sensorId;
   public $heatRate;
@@ -8,6 +9,7 @@ class HeatRate
   public function __construct($data) {
     $this->turbineId = isset($data['turbineId']) ? intval($data['turbineId']) : null;
     $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
+    $this->dataCollectedDate = $data['dataCollectedDate'];
     $this->heatRate = $data['heatRate'];
   }
 
