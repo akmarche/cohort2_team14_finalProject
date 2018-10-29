@@ -95,7 +95,7 @@ var turbineApp = new Vue({
           series: [{
               type: 'area',
               name: 'Turbine 1',
-              data: this.output.map( item => [item.dataCollectedDate, item.heatRate] )
+              data: this.output.map( item => [item.heatRate] )
           }]
       });
     },
