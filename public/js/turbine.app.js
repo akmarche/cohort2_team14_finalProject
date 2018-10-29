@@ -35,6 +35,7 @@ var turbineApp = new Vue({
       .then( response => response.json() )
       .then( json => {
         turbineApp.output = json;
+        this.formatTurbineOutput();
         this.buildTurbineOutputChart();
       })
       .catch( err => {
@@ -43,6 +44,12 @@ var turbineApp = new Vue({
       } )
     },
 
+    formatTurbineOutput() {
+      this.output.forEach(
+        (entry, index, arr) => {
+          entry.dataCollectedDate = Date.parse(entry.dataCollectedDate);
+        });
+    },
     buildTurbineOutputChart() {
       var turbineOutputChart = Highcharts.chart('chart', {
           title: {
