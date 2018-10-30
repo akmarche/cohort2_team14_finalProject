@@ -3,7 +3,6 @@ class SensorTimeSeries
 {
   public $sensorId;
   public $siteId;
-  public $turbineId;
   public $sensorDeployedId;
   public $dataCollectedDate;
   public $output;
@@ -19,7 +18,6 @@ class SensorTimeSeries
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
     $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
     $this->siteId = isset($data['siteId']) ? intval($data['siteId']) : null;
-    $this->turbineId = isset($data['turbineId']) ? intval($data['turbineId']) : null;
     $this->dataCollectedDate = $data['dataCollectedDate'];
     $this->output = $data['output'];
     $this->heatRate = $data['heatRate'];
