@@ -24,7 +24,7 @@
           <a class="nav-link" href="index.html">Site Information Page</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="clientinfo.html">Client Infomration Page</a>
+          <a class="nav-link" href="clientinfo.html">Client Information Page</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Turbine Information Page<span class="sr-only">(current)</span></a>
@@ -55,37 +55,33 @@
     </tr>
   </tbody>
 </table>
-<div class="card-group">
-  <div class="card">
-    <img class="card-img-top" src="img/images.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">KPI of Turbine 1</h5>
-      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="img/images.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">KPI of Turbine 3</h5>
-      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="img/images.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">KPI of Turbine 4</h5>
-      <p class="card-text">This is a placeholder image and text for KPI definations, the actual image, graphas and data will get updated witgh subsequent sprint developments</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
+<h4 class="kpi-header">Key Performance Indicator Dashboard</h4>
+<h4 class="client-header">Select Turbine</h4>
+<div id="agsKPI">
+   <label for="country" class="col-md-3 col-form-label">Select Turbine</label>
+   <div class="col-md-4">
+     <select v-model="turbineId" v-on:change="fetchSensorTimeSeries(turbineId)">
+       <option v-for="turbine in turbines" v-bind:value="turbine.turbineId">
+         {{turbine.turbineId}}
+       </option>
+     </select>
+   </div>
+<div class="row">
+ <div id="outputChart" class="col-md-6"></div>
+ <div id="heatRateChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="compressorEfficiencyChart" class="col-md-6"></div>
+ <div id="availabilityChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="reliabilityChart" class="col-md-6"></div>
+ <div id="fixedHoursChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="tripsChart" class="col-md-6"></div>
+ <div id="startsChart" class="col-md-6"></div>
+</div>
 </div>
     </main>
     <!-- Footer -->
@@ -134,6 +130,7 @@
 
       <!-- development version, includes helpful console warnings -->
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="js/turbine.app.js"></script>
 
       <script src="js/tablesort.min.js"></script>

@@ -42,23 +42,28 @@ class SensorTimeSeries
     return $arr;
   }
 
-  public function create() {
+  public static function fetchTimeSeriesByTurbineId(int $turbineId){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT SensorTimeSeries (sensorDeployedId, dataCollectedDate, output, heatRate, compressorEfficiency, availability, reliability, firedHours, trips, starts)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-    $statement = $db->prepare($sql);
-    $success = $statement->execute([
-      $this->sensorDeployedId,
-      $this->dataCollectedDate,
-      $this->output,
-      $this->heatRate,
-      $this->compressorEfficiency,
-      $this->availability,
-      $this->reliability,
-      $this->firedHours,
-      $this->trips,
-      $this->starts,
-    ]);
-    $this->sensorDeployedId = $db->lastInsertId();
+
+   // 2. Prepare the query
+   $sql = 'SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join turbineDeployed td on sd.turbineDeployedId = td.turbineDeployedId where turbineId = ?';
+   //$sql = 'SELECT * FROM note WHERE clientId = ?';
+
+   $statement = $db->prepare($sql);
+
+   // 3. Run the query
+   $success = $statement->execute(
+       [$turbineId]
+   );
+
+   // 4. Handle the results
+   $arr = [];
+   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+     // 4.a. For each row, make a new work object
+     $sensorTimeSeriesItem =  new SensorTimeSeries($row);
+
+     array_push($arr, $sensorTimeSeriesItem);
+   }
+   return $arr;
   }
 }
