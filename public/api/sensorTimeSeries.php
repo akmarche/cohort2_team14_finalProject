@@ -4,7 +4,7 @@ require '../../app/common.php';
 $turbineId = intval($_GET['turbineId'] ?? 0);
 
 if($turbineId < 1){
-  $sensorTimeSeries = SensorTimeSeries:fetchAll();
+  $sensorTimeSeries = SensorTimeSeries::fetchAll();
   $json = json_encode($sensorTimeSeries, JSON_PRETTY_PRINT);
   header('Content-type: application/json');
   echo $json;
