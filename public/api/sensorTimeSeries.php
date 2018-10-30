@@ -10,11 +10,8 @@ if($turbineId < 1){
   echo $json;
 }
 else{
-  $sensorTimeSeriesByTurbineId = SensorTimeSeries::fetchTimeSeriesByTurbineId($turbineId){
+  $sensorTimeSeriesByTurbineId = SensorTimeSeries::fetchTimeSeriesByTurbineId($turbineId)
     $json = json_encode($sensorTimeSeriesByTurbineId, JSON_PRETTY_PRINT);
-
-// 3. Print
-header('Content-Type: application/json');
-echo $json;
-  }
+    header('Content-Type: application/json');
+    echo $json;
 }
