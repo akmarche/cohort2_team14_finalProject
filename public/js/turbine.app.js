@@ -13,8 +13,6 @@ var turbineApp = new Vue({
   ],
   sensorTime:[]
   },
-  computed: {
-  },
   methods: {
     fetchTurbine () {
       fetch('api/turbine.php')
@@ -514,9 +512,15 @@ var turbineApp = new Vue({
               )
           }]
       });
-  }
+  },
+  emptyTurbineId() {
+    return {
+      turbineId: null
+    }
+  },
   },
   created () {
+    this.emptyTurbineId();
     this.fetchTurbine();
   }
 })
