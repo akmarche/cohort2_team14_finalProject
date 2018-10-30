@@ -47,7 +47,9 @@
    <table class="table table-hover" id="turbineTable">
 <thead>
  <tr>
-   <th scope="col">SensorDeployedId</th>
+   <th scope="col">Site Id</th>
+   <th scope="col">Turbine Id</th>
+   <th scope="col">Sensor Id</th>
    <th scope="col">DataCollectedDate</th>
    <th scope="col">Output</th>
    <th scope="col">HeatRate</th>
@@ -61,7 +63,10 @@
 </thead>
 <tbody>
  <tr v-for="s in sensorTime">
-   <th scope="row">{{s.sensorDeployedId}}</th>
+   <th>{{s.siteId}}</th>
+   <th>{{s.turbineId}}</th>
+   <th>{{s.sensorId}}</th>
+   <td>{{s.dataCollectedDate}}</td>
    <td>{{s.output}}</td>
    <td>{{s.heatRate}}</td>
    <td>{{s.compressorEfficiency}}</td>
