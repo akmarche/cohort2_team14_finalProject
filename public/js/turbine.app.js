@@ -10,7 +10,8 @@ var turbineApp = new Vue({
       rampUpTime : '',
       maintenanceInterval : ''
     }
-  ]
+  ],
+  sensorTime:[]
   },
   computed: {
   },
@@ -29,20 +30,20 @@ var turbineApp = new Vue({
      .then( response => response.json() )
      // ^ This is the same as .then( function(response) {return response.json()} )
      .then( json => {
-       kpiApp.sensorTime = json;
-       kpiApp.formatSensorTime();
-       kpiApp.buildOutputChart();
-       kpiApp.buildHeatRateChart();
-       kpiApp.buildCompressorEfficiencyChart();
-       kpiApp.buildAvailabilityChart();
-       kpiApp.buildReliabilityChart();
-       kpiApp.buildFixedHourChart();
-       kpiApp.buildTripsChart();
-       kpiApp.buildStartsChart();
+       turbineApp.sensorTime = json;
+       turbineApp.formatSensorTime();
+       turbineApp.buildOutputChart();
+       turbineApp.buildHeatRateChart();
+       turbineApp.buildCompressorEfficiencyChart();
+       turbineApp.buildAvailabilityChart();
+       turbineApp.buildReliabilityChart();
+       turbineApp.buildFixedHourChart();
+       turbineApp.buildTripsChart();
+       turbineApp.buildStartsChart();
    //  console.log(agsApp.sensors);
    })
      .catch( err => {
-       console.log('SENSOR FETCH ERROR:');
+       console.log('KPI FETCH ERROR:');
        console.log(err);
      })
    },
