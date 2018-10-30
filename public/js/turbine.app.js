@@ -46,6 +46,18 @@ var turbineApp = new Vue({
        console.log(err);
      })
    },
+   fetchSensorTimeSeriesTable (turbineId) {
+    fetch('api/sensorTimeSeries.php?turbineId='+turbineId)
+    .then( response => response.json() )
+    // ^ This is the same as .then( function(response) {return response.json()} )
+    .then( json => {
+      turbineApp.sensorTime = json;
+  })
+    .catch( err => {
+      console.log('KPI FETCH ERROR:');
+      console.log(err);
+    })
+  },
    formatSensorTime(){
      this.sensorTime.forEach(
        (entry, index, arr) => {
