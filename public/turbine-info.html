@@ -69,6 +69,8 @@
        </option>
      </select>
    </div>
+   <br />
+   <h4 class="client-header">Select the Deployed Sensor for KPI</h4>
    <div class="col-md-4">
      <select v-model="sensorDeployedId" v-on:change="fetchSensorTimeSeries(sensorDeployedId)">
        <option v-for="sensor in sensors" v-bind:value="sensor.sensorDeployedId">
