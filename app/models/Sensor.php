@@ -4,7 +4,7 @@ class Sensor
   public $sensorDeployedId;
 
   public function __construct($data) {
-    $this->sensorDeployedId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
+    $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
   }
 
   public static function fetchSensorByTurbine(int $turbineId) {
