@@ -26,6 +26,8 @@ footer{
 .btn-primary{
   margin-top: 5px;
   background-color: #90EE90!important;
+  color: black!important;
+  border-color: #90EE90!important;
 }
 .logo{
   width:75px;
