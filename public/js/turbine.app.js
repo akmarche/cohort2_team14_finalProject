@@ -31,7 +31,7 @@ var turbineApp = new Vue({
       })
     },
     fetchSensor(turbineId) {
-    fetch('api/sensorDeployed.php?turbineId='+turbineId)
+    fetch('api/sensor.php?turbineId='+turbineId)
     .then(response => response.json())
     .then(json => {turbineApp.sensors = json })
     .catch( err => {
@@ -51,7 +51,7 @@ var turbineApp = new Vue({
        turbineApp.buildCompressorEfficiencyChart();
        turbineApp.buildAvailabilityChart();
        turbineApp.buildReliabilityChart();
-       turbineApp.buildFiredHourChart();
+       turbineApp.buildFixedHourChart();
        turbineApp.buildTripsChart();
        turbineApp.buildStartsChart();
    //  console.log(agsApp.sensors);
@@ -62,7 +62,7 @@ var turbineApp = new Vue({
      })
    },
    fetchSensorTimeSeriesTable (turbineId) {
-    fetch('api/sensorTimeSeriesTable.php?turbineId='+turbineId)
+    fetch('api/sensorTimeSeries.php?turbineId='+turbineId)
     .then( response => response.json() )
     // ^ This is the same as .then( function(response) {return response.json()} )
     .then( json => {
@@ -82,7 +82,7 @@ var turbineApp = new Vue({
          entry.compressorEfficiency = Number(entry.compressorEfficiency);
          entry.availability = Number(entry.availability);
          entry.reliability = Number(entry.reliability);
-         entry.firedHours = Number(entry.firedHours);
+         entry.fixedHours = Number(entry.firedHours);
          entry.trips = Number(entry.trips);
          entry.starts = Number(entry.starts);
        }
@@ -419,20 +419,20 @@ var turbineApp = new Vue({
            }]
        });
    },
-   buildFiredHourChart() {
-     Highcharts.chart('firedHoursChart', {
+   buildFixedHourChart() {
+     Highcharts.chart('fixedHoursChart', {
            chart: {
                zoomType: 'x'
            },
            title: {
-               text: 'Fired Hour'
+               text: 'Fixed Hour'
            },
            xAxis: {
                type: 'datetime'
            },
            yAxis: {
                title: {
-                   text: 'Fired Hour'
+                   text: 'Fixed Hour'
                }
            },
            legend: {
@@ -466,9 +466,9 @@ var turbineApp = new Vue({
            },
            series: [{
                type: 'area',
-               name: 'Fired Hour',
+               name: 'Fixed Hour',
                data: turbineApp.sensorTime.map( entry=>
-                 [entry.dateCollected, entry.firedHours]
+                 [entry.dateCollected, entry.fixedHours]
                )
            }]
        });
