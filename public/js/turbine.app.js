@@ -51,7 +51,7 @@ var turbineApp = new Vue({
        turbineApp.buildCompressorEfficiencyChart();
        turbineApp.buildAvailabilityChart();
        turbineApp.buildReliabilityChart();
-       turbineApp.buildFixedHourChart();
+       turbineApp.buildFiredHourChart();
        turbineApp.buildTripsChart();
        turbineApp.buildStartsChart();
    //  console.log(agsApp.sensors);
@@ -82,7 +82,7 @@ var turbineApp = new Vue({
          entry.compressorEfficiency = Number(entry.compressorEfficiency);
          entry.availability = Number(entry.availability);
          entry.reliability = Number(entry.reliability);
-         entry.fixedHours = Number(entry.firedHours);
+         entry.firedHours = Number(entry.firedHours);
          entry.trips = Number(entry.trips);
          entry.starts = Number(entry.starts);
        }
@@ -419,20 +419,20 @@ var turbineApp = new Vue({
            }]
        });
    },
-   buildFixedHourChart() {
-     Highcharts.chart('fixedHoursChart', {
+   buildFiredHourChart() {
+     Highcharts.chart('firedHoursChart', {
            chart: {
                zoomType: 'x'
            },
            title: {
-               text: 'Fixed Hour'
+               text: 'Fired Hour'
            },
            xAxis: {
                type: 'datetime'
            },
            yAxis: {
                title: {
-                   text: 'Fixed Hour'
+                   text: 'Fired Hour'
                }
            },
            legend: {
@@ -466,9 +466,9 @@ var turbineApp = new Vue({
            },
            series: [{
                type: 'area',
-               name: 'Fixed Hour',
+               name: 'Fired Hour',
                data: turbineApp.sensorTime.map( entry=>
-                 [entry.dateCollected, entry.fixedHours]
+                 [entry.dateCollected, entry.firedHours]
                )
            }]
        });
