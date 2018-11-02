@@ -20,7 +20,7 @@ class SensorDeployed
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theSensor =  new Sensor($row);
+      $theSensor =  new SensorDeployed($row);
       array_push($arr, $theSensor);
     }
     return $arr;

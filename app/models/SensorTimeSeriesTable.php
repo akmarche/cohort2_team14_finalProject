@@ -40,7 +40,7 @@ class SensorTimeSeriesTable
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theSensorTimeSeries =  new SensorTimeSeries($row);
+      $theSensorTimeSeries =  new SensorTimeSeriesTable($row);
       array_push($arr, $theSensorTimeSeries);
     }
     return $arr;
@@ -64,7 +64,7 @@ class SensorTimeSeriesTable
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
      // 4.a. For each row, make a new work object
-     $sensorTimeSeriesItem =  new SensorTimeSeries($row);
+     $sensorTimeSeriesItem =  new SensorTimeSeriesTable($row);
 
      array_push($arr, $sensorTimeSeriesItem);
    }
