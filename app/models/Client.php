@@ -7,8 +7,6 @@ class Client
   public $gicsSector;
   public $gicsSubIndustry;
   public $headquarters;
-  public $notes;
-
   public function __construct($data) {
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
     $this->clientName = $data['clientName'];
@@ -16,9 +14,7 @@ class Client
     $this->gicsSector = $data['gicsSector'];
     $this->gicsSubIndustry = $data['gicsSubIndustry'];
     $this->headquarters = $data['headquarters'];
-    $this->notes = $data['notes'];
   }
-
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -34,14 +30,5 @@ class Client
       array_push($arr, $theClient);
     }
     return $arr;
-  }
-
-  public function addNotes() {
-    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'UPDATE Client SET notes = ? WHERE clientName = ?';
-    $statement = $db->prepare($sql);
-    $success = $statement->execute([
-      $this->notes,
-    ]);
   }
 }

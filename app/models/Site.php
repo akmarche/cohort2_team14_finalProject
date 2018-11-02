@@ -14,7 +14,7 @@ class Site
   public $addrState;
   public $addrZip;
   public $addrCountry;
-
+  public $imgPath;
   public function __construct($data) {
     $this->siteId = isset($data['siteId']) ? intval($data['siteId']) : null;
     $this->clientId = $data['clientId'];
@@ -29,8 +29,8 @@ class Site
     $this->addrState = $data['addrState'];
     $this->addrZip = $data['addrZip'];
     $this->addrCountry = $data['addrCountry'];
+    $this->imgPath = $data['imgPath'];
   }
-
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -47,11 +47,10 @@ class Site
     }
     return $arr;
   }
-
   public function create() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT Site (siteId, clientId, siteName, siteDescription, primaryContact,capacity,commercialDate,addrLine1,addrLine2,addrCity,addrState,addrZip,addrCountry)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?. ?, ?)';
+    $sql = 'INSERT Site (siteId, clientId, siteName, siteDescription, primaryContact,capacity,commercialDate,addrLine1,addrLine2,addrCity,addrState,addrZip,addrCountry,imgPath)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?. ?, ?,?)';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
       $this->siteId,
@@ -67,6 +66,7 @@ class Site
       $this->addrState,
       $this->addrZip,
       $this->addrCountry,
+      $this->imgPath
     ]);
     $this->siteId = $db->lastInsertId();
   }

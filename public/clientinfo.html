@@ -29,9 +29,6 @@
         <li class="nav-item">
           <a class="nav-link" href="turbine-info.html">Turbine Information Page</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="KpiTable.html">Turbine KPI Table Page</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -45,7 +42,6 @@
       <th scope="col">GICS Sector</th>
       <th scope="col">GICS SubIndustry</th>
       <th scope="col">Headquarters</th>
-      <th scope="col">Notes</th>
     </tr>
   </thead>
   <tbody>
@@ -56,17 +52,31 @@
       <td>{{c.gicsSector}}</td>
       <td>{{c.gicsSubIndustry}}</td>
       <td>{{c.headquarters}}</td>
-      <td>{{c.notes}}</td>
     </tr>
   </tbody>
+</table>
+<br />
+<h2>Client Notes Table</h2>
+<table class="table table-hover">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="c in clientNotes">
+<th scope="row">{{c.clientId}}</th>
+<td>{{c.notes}}</td>
+</tr>
+</tbody>
 </table>
 <form class="clientnotes" id="clientNotesForm" @submit.prevent="handleNotesForm">
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">Choose Client</label>
-      <select id="inputState" class="form-control" v-model="notesForm.clientName">
-        <option selected>Hoosier Energy</option>
-        <option>Pacific Tidal</option>
+      <select id="clientName" class="form-control" v-model="notesForm.clientId">
+        <option v-for="c in clients" selected>{{c.clientId}}</option>
       </select>
     </div>
   <div class="form-group">
