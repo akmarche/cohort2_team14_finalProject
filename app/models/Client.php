@@ -7,6 +7,7 @@ class Client
   public $gicsSector;
   public $gicsSubIndustry;
   public $headquarters;
+
   public function __construct($data) {
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
     $this->clientName = $data['clientName'];

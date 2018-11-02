@@ -7,6 +7,7 @@ class Note
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
     $this->notes = $data['notes'];
   }
+
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -23,6 +24,7 @@ class Note
     }
     return $arr;
   }
+
   public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT ClientNotes (clientId, notes)

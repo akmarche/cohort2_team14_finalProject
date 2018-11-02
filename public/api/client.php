@@ -1,5 +1,6 @@
 <?php
 require '../../app/common.php';
+
 // 1. Go to the database and get all work associated with the $taskId
 $clients = Client::fetchAll();
 // 2. Convert to JSON

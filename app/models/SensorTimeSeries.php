@@ -13,7 +13,6 @@ class SensorTimeSeries
   public $firedHours;
   public $trips;
   public $starts;
-
   public function __construct($data) {
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
     $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
@@ -28,7 +27,6 @@ class SensorTimeSeries
     $this->trips = $data['trips'];
     $this->starts = $data['starts'];
   }
-
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -45,7 +43,7 @@ class SensorTimeSeries
     }
     return $arr;
   }
-
+]
   public static function fetchTimeSeriesByTurbineId(int $sensorDeployedId){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
@@ -54,7 +52,6 @@ class SensorTimeSeries
    //$sql = 'SELECT * FROM note WHERE clientId = ?';
 
    $statement = $db->prepare($sql);
-
    // 3. Run the query
    $success = $statement->execute(
        [$sensorDeployedId]

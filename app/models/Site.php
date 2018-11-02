@@ -15,6 +15,7 @@ class Site
   public $addrZip;
   public $addrCountry;
   public $imgPath;
+
   public function __construct($data) {
     $this->siteId = isset($data['siteId']) ? intval($data['siteId']) : null;
     $this->clientId = $data['clientId'];

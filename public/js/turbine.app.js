@@ -28,7 +28,7 @@ var turbineApp = new Vue({
       .catch( err => {
         console.log('TASK FETCH ERROR:');
         console.log(err);
-      })
+      } )
     },
     fetchSensor(turbineId) {
     fetch('api/sensorDeployed.php?turbineId='+turbineId)
@@ -547,8 +547,9 @@ var turbineApp = new Vue({
     }
   },
   },
+
   created () {
     this.emptyTurbineId();
     this.fetchTurbine();
-  }
+  },
 })
