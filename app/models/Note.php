@@ -4,7 +4,7 @@ class Note
   public $clientName;
   public $notes;
   public function __construct($data) {
-    $this->clientId = $data['clientName']
+    $this->clientId = $data['clientName'];
     $this->notes = $data['notes'];
   }
 
