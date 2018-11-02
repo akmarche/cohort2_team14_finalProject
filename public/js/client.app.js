@@ -14,6 +14,7 @@ var clientApp = new Vue({
   clientNotes:[
     {
       clientName: '',
+      meetingDate: '',
       notes: ''
     }
   ],
@@ -47,6 +48,7 @@ var clientApp = new Vue({
     getEmptyNotesForm() {
       return {
         clientName: null,
+        meetingDate: null,
         notes: null
       }
     },

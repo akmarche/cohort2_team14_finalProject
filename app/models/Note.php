@@ -2,9 +2,11 @@
 class Note
 {
   public $clientName;
+  public $meetingDate;
   public $notes;
   public function __construct($data) {
     $this->clientName = $data['clientName'];
+    $this->date = $data['meetingDate'];
     $this->notes = $data['notes'];
   }
 
@@ -32,6 +34,7 @@ class Note
     $statement = $db->prepare($sql);
     $success = $statement->execute([
       $this->clientName,
+      $this->meetingDate,
       $this->notes,
     ]);
   }
