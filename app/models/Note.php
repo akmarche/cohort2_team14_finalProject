@@ -4,7 +4,7 @@ class Note
   public $clientName;
   public $notes;
   public function __construct($data) {
-    $this->clientId = $data['clientName'];
+    $this->clientName = $data['clientName'];
     $this->notes = $data['notes'];
   }
 
@@ -31,7 +31,7 @@ class Note
             VALUES (?, ?)';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
-      $this->clientId,
+      $this->clientName,
       $this->notes,
     ]);
   }
