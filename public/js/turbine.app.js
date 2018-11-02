@@ -31,7 +31,7 @@ var turbineApp = new Vue({
       })
     },
     fetchSensor(turbineId) {
-    fetch('api/sensor.php?turbineId='+turbineId)
+    fetch('api/sensorDeployed.php?turbineId='+turbineId)
     .then(response => response.json())
     .then(json => {turbineApp.sensors = json })
     .catch( err => {
