@@ -1,16 +1,16 @@
 <?php
 require '../../app/common.php';
 
-$turbineId = intval($_GET['turbineId'] ?? 0);
+$sensorDeployedId = intval($_GET['turbineId'] ?? 0);
 
-if($turbineId < 1){
+if($sensorDeployedId < 1){
   $sensorTimeSeries = SensorTimeSeries::fetchAll();
   $json = json_encode($sensorTimeSeries, JSON_PRETTY_PRINT);
   header('Content-type: application/json');
   echo $json;
 }
 else{
-  $sensorTimeSeriesByTurbineId = SensorTimeSeries::fetchTimeSeriesByTurbineId($turbineId);
+  $sensorTimeSeriesByTurbineId = SensorTimeSeries::fetchTimeSeriesByTurbineId($sensorDeployedId);
     $json = json_encode($sensorTimeSeriesByTurbineId, JSON_PRETTY_PRINT);
     header('Content-Type: application/json');
     echo $json;

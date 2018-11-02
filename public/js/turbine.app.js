@@ -39,8 +39,8 @@ var turbineApp = new Vue({
       console.log(err);
     })
   },
-    fetchSensorTimeSeries (turbineId) {
-     fetch('api/sensorTimeSeries.php?turbineId='+turbineId)
+    fetchSensorTimeSeries (sensorDeployedId) {
+     fetch('api/sensorTimeSeries.php?sensorDeployedId='+sensorDeployedId)
      .then( response => response.json() )
      // ^ This is the same as .then( function(response) {return response.json()} )
      .then( json => {
