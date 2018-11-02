@@ -1,5 +1,5 @@
 <?php
-class SensorTimeSeries
+class SensorTimeSeriesTable
 {
   public $sensorId;
   public $siteId;
@@ -38,26 +38,26 @@ class SensorTimeSeries
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theSensorTimeSeries =  new SensorTimeSeries($row);
+      $theSensorTimeSeries =  new SensorTimeSeriesTable($row);
       array_push($arr, $theSensorTimeSeries);
     }
     return $arr;
   }
-  public static function fetchTimeSeriesByTurbineId(int $sensorDeployedId){
+  public static function fetchTimeSeriesByTurbineId(int $turbineId){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
    // 2. Prepare the query
-   $sql = 'SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join TurbineDeployed td on sd.TurbineDeployedId = td.TurbineDeployedId where sd.sensorDeployedId = ?';
+   $sql = 'SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join TurbineDeployed td on sd.TurbineDeployedId = td.TurbineDeployedId where turbineId = ?';
    //$sql = 'SELECT * FROM note WHERE clientId = ?';
    $statement = $db->prepare($sql);
    // 3. Run the query
    $success = $statement->execute(
-       [$sensorDeployedId]
+       [$turbineId]
    );
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
      // 4.a. For each row, make a new work object
-     $sensorTimeSeriesItem =  new SensorTimeSeries($row);
+     $sensorTimeSeriesItem =  new SensorTimeSeriesTable($row);
      array_push($arr, $sensorTimeSeriesItem);
    }
    return $arr;

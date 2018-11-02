@@ -10,7 +10,7 @@ var turbineApp = new Vue({
       rampUpTime : '',
       maintenanceInterval : ''
     }
-  ]
+  ],
   },
   computed: {
   },
@@ -22,9 +22,10 @@ var turbineApp = new Vue({
       .catch( err => {
         console.log('TASK FETCH ERROR:');
         console.log(err);
-      })
+      } )
     },
   },
+
   created () {
     this.fetchTurbine();
   },
