@@ -103,3 +103,7 @@ WHERE s.sensorDeployedId = sd.sensorDeployedId AND td.turbineDeployedId = sd.Tur
 Drop View If Exists heatRate;
 
 Select * from heatRate;
+
+SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join TurbineDeployed td on sd.TurbineDeployedId = td.TurbineDeployedId where sd.sensorDeployedId = ?;
+
+SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join TurbineDeployed td on sd.TurbineDeployedId = td.TurbineDeployedId where turbineId = ?;
