@@ -1,14 +1,14 @@
 <?php
 require '../../app/common.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  require 'sensorPost.php';
-  exit;
+$turbineId = intval($_GET['turbineId'] ?? 0);
+
+if($turbineId < 1){
+  echo 'Hello World';
 }
-// 1. Go to the database and get all work associated with the $taskId
-$sensors = Sensor::fetchAll();
-// 2. Convert to JSON
-$json = json_encode($sensors, JSON_PRETTY_PRINT);
-// 3. Print
-header('Content-Type: application/json');
-echo $json;
+else{
+  $sensorDelpoyedByTurbineId = Sensor::fetchSensorByTurbine($turbineId);
+    $json = json_encode($sensorDelpoyedByTurbineId, JSON_PRETTY_PRINT);
+    header('Content-Type: application/json');
+    echo $json;
+}

@@ -1,28 +1,22 @@
 <?php
 class Sensor
 {
-  public $sensorId;
-  public $sensorName;
-  public $sensorDescription;
-  public $manufacturer;
-  public $totalLifeExpectancyHours;
+  public $sensorDeployedId;
 
   public function __construct($data) {
-    $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
-    $this->sensorName = $data['sensorName'];
-    $this->sensorDescription = $data['sensorDescription'];
-    $this->manufacturer = $data['manufacturer'];
-    $this->totalLifeExpectancyHours = isset($data['totalLifeExpectancyHours']) ? intval($data['totalLifeExpectancyHours']) : null;
+    $this->sensorDeployedId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
   }
 
-  public static function fetchAll() {
+  public static function fetchSensorByTurbine(int $turbineId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM Sensor';
+    $sql = 'SELECT sensorDeployedId FROM SensorDeployed sd, TurbineDeployed td where sd.turbineDeployedId = td.turbineDeployedId and td.turbineId = ?';
     $statement = $db->prepare($sql);
     // 3. Run the query
-    $success = $statement->execute();
+    $success = $statement->execute(
+       [$turbineId]
+    );
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

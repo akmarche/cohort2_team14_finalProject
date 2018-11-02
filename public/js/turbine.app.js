@@ -12,7 +12,8 @@ var turbineApp = new Vue({
     }
   ],
   sensorTime:[],
-  turbineId: ''
+  turbineId: '',
+  sensors: [],
   },
   methods: {
     fetchTurbine () {
@@ -24,6 +25,15 @@ var turbineApp = new Vue({
         console.log(err);
       })
     },
+    fetchSensor(turbineId) {
+    fetch('api/sensor.php')
+    .then(response => response.json())
+    .then(json => {turbineApp.sensors = json })
+    .catch( err => {
+      console.log('SENSOR FETCH ERROR:');
+      console.log(err);
+    })
+  },
     fetchSensorTimeSeries (turbineId) {
      fetch('api/sensorTimeSeries.php?turbineId='+turbineId)
      .then( response => response.json() )
