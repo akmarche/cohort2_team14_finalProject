@@ -62,7 +62,7 @@ var turbineApp = new Vue({
      })
    },
    fetchSensorTimeSeriesTable (turbineId) {
-    fetch('api/sensorTimeSeries.php?turbineId='+turbineId)
+    fetch('api/sensorTimeSeriesTable.php?turbineId='+turbineId)
     .then( response => response.json() )
     // ^ This is the same as .then( function(response) {return response.json()} )
     .then( json => {
