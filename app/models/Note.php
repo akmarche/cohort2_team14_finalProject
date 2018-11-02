@@ -3,7 +3,6 @@ class Note
 {
   public $clientId;
   public $notes;
-
   public function __construct($data) {
     $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
     $this->notes = $data['notes'];

@@ -16,7 +16,6 @@ class Client
     $this->gicsSubIndustry = $data['gicsSubIndustry'];
     $this->headquarters = $data['headquarters'];
   }
-
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);

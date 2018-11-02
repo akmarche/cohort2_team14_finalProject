@@ -2,9 +2,11 @@
 class SensorDeployed
 {
   public $sensorDeployedId;
+
   public function __construct($data) {
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
   }
+
   public static function fetchSensorByTurbine(int $turbineId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);

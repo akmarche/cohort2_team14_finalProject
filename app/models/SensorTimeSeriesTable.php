@@ -13,6 +13,7 @@ class SensorTimeSeriesTable
   public $firedHours;
   public $trips;
   public $starts;
+  
   public function __construct($data) {
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
     $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
@@ -27,6 +28,7 @@ class SensorTimeSeriesTable
     $this->trips = $data['trips'];
     $this->starts = $data['starts'];
   }
+  
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -43,16 +45,21 @@ class SensorTimeSeriesTable
     }
     return $arr;
   }
+  
   public static function fetchTimeSeriesByTurbineId(int $turbineId){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+
    // 2. Prepare the query
    $sql = 'SELECT * from SensorTimeSeries sts inner join SensorDeployed sd on sts.sensorDeployedId = sd.sensorDeployedId inner join TurbineDeployed td on sd.TurbineDeployedId = td.TurbineDeployedId where turbineId = ?';
    //$sql = 'SELECT * FROM note WHERE clientId = ?';
+
    $statement = $db->prepare($sql);
+
    // 3. Run the query
    $success = $statement->execute(
        [$turbineId]
    );
+    
    // 4. Handle the results
    $arr = [];
    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

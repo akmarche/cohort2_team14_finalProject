@@ -32,7 +32,6 @@ class Site
     $this->addrCountry = $data['addrCountry'];
     $this->imgPath = $data['imgPath'];
   }
-
   public static function fetchAll() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -49,7 +48,6 @@ class Site
     }
     return $arr;
   }
-
   public function create() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     $sql = 'INSERT Site (siteId, clientId, siteName, siteDescription, primaryContact,capacity,commercialDate,addrLine1,addrLine2,addrCity,addrState,addrZip,addrCountry,imgPath)
