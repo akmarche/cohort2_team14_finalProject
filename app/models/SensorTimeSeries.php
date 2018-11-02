@@ -43,7 +43,6 @@ class SensorTimeSeries
     }
     return $arr;
   }
-]
   public static function fetchTimeSeriesByTurbineId(int $sensorDeployedId){
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
