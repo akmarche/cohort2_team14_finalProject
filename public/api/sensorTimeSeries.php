@@ -1,7 +1,7 @@
 <?php
 require '../../app/common.php';
 
-$sensorDeployedId = intval($_GET['turbineId'] ?? 0);
+$sensorDeployedId = intval($_GET['sensorDeployedId'] ?? 0);
 
 if($sensorDeployedId < 1){
   $sensorTimeSeries = SensorTimeSeries::fetchAll();
