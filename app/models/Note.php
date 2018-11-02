@@ -6,7 +6,7 @@ class Note
   public $notes;
   public function __construct($data) {
     $this->clientName = $data['clientName'];
-    $this->date = $data['meetingDate'];
+    $this->meetingDate = $data['meetingDate'];
     $this->notes = $data['notes'];
   }
 
