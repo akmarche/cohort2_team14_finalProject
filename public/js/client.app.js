@@ -13,7 +13,7 @@ var clientApp = new Vue({
   ],
   clientNotes:[
     {
-      clientId: '',
+      clientName: '',
       notes: ''
     }
   ],
@@ -46,7 +46,7 @@ var clientApp = new Vue({
     },
     getEmptyNotesForm() {
       return {
-        clientId: null,
+        clientName: null,
         notes: null
       }
     },
