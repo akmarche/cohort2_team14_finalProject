@@ -29,6 +29,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Turbine Information Page<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="KpiTable.html">Turbine KPI Table Page</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -55,8 +58,42 @@
     </tr>
   </tbody>
 </table>
-<div id="chart">
-
+<h4 class="kpi-header">Key Performance Indicator Dashboard</h4>
+<h4 class="client-header">Select Turbine</h4>
+<div id="agsKPI">
+   <label for="country" class="col-md-3 col-form-label">Select Turbine</label>
+   <div class="col-md-4">
+     <select v-model="turbineId" v-on:change="fetchSensor(turbineId)">
+       <option v-for="turbine in turbines" v-bind:value="turbine.turbineId">
+         {{turbine.turbineId}}
+       </option>
+     </select>
+   </div>
+   <br />
+   <h4 class="client-header">Select the Deployed Sensor for KPI</h4>
+   <div class="col-md-4">
+     <select v-model="sensorDeployedId" v-on:change="fetchSensorTimeSeries(sensorDeployedId)">
+       <option v-for="sensor in sensors" v-bind:value="sensor.sensorDeployedId">
+         {{sensor.sensorDeployedId}}
+       </option>
+     </select>
+   </div>
+<div class="row">
+ <div id="outputChart" class="col-md-6"></div>
+ <div id="heatRateChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="compressorEfficiencyChart" class="col-md-6"></div>
+ <div id="availabilityChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="reliabilityChart" class="col-md-6"></div>
+ <div id="fixedHoursChart" class="col-md-6"></div>
+</div>
+<div class="row">
+ <div id="tripsChart" class="col-md-6"></div>
+ <div id="startsChart" class="col-md-6"></div>
+</div>
 </div>
     </main>
     <!-- Footer -->
