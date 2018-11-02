@@ -2,32 +2,24 @@
 class SensorDeployed
 {
   public $sensorDeployedId;
-  public $sensorId;
-  public $turbineDeployedId;
-  public $serialNumber;
-  public $deployedDate;
-
   public function __construct($data) {
     $this->sensorDeployedId = isset($data['sensorDeployedId']) ? intval($data['sensorDeployedId']) : null;
-    $this->sensorId = isset($data['sensorId']) ? intval($data['sensorId']) : null;
-    $this->turbineDeployedId = isset($data['turbineDeployedId']) ? intval($data['turbineDeployedId']) : null;
-    $this->serialNumber = $data['serialNumber'];
-    $this->deployedDate = $data['deployedDate'];
   }
-
-  public static function fetchAll() {
+  public static function fetchSensorByTurbine(int $turbineId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM SensorDeployed';
+    $sql = 'SELECT sensorDeployedId FROM SensorDeployed sd, TurbineDeployed td where sd.turbineDeployedId = td.turbineDeployedId and td.turbineId = ?';
     $statement = $db->prepare($sql);
     // 3. Run the query
-    $success = $statement->execute();
+    $success = $statement->execute(
+       [$turbineId]
+    );
     // 4. Handle the results
     $arr = [];
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $theSensorDeployed =  new SensorDeployed($row);
-      array_push($arr, $theSensorDeployed);
+      $theSensor =  new SensorDeployed($row);
+      array_push($arr, $theSensor);
     }
     return $arr;
   }
