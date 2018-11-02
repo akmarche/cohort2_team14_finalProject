@@ -78,8 +78,8 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">Choose Client</label>
-      <select id="clientName" class="form-control" v-model="notesForm.clientId">
-        <option v-for="c in clients" selected>{{c.clientId}}</option>
+      <select id="clientName" class="form-control" :value="notesForm.clientId" v-model="notesForm.clientId">
+        <option v-for="c in clients" selected>{{c.clientName}}</option>
       </select>
     </div>
   <div class="form-group">
