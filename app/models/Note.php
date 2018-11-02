@@ -1,10 +1,10 @@
 <?php
 class Note
 {
-  public $clientId;
+  public $clientName;
   public $notes;
   public function __construct($data) {
-    $this->clientId = isset($data['clientId']) ? intval($data['clientId']) : null;
+    $this->clientId = $data['clientName']
     $this->notes = $data['notes'];
   }
 
@@ -27,7 +27,7 @@ class Note
 
   public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT ClientNotes (clientId, notes)
+    $sql = 'INSERT ClientNotes (clientName, notes)
             VALUES (?, ?)';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
