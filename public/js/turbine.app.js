@@ -13,8 +13,12 @@ var turbineApp = new Vue({
   ],
   sensorTime:[],
   turbineId: '',
-  sensorId: '',
-  sensors: [],
+  sensorDeployedId: '',
+  sensors: [
+    {
+      sensorDeployedId: '',
+    }
+  ],
   },
   methods: {
     fetchTurbine () {

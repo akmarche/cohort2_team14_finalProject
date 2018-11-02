@@ -70,9 +70,9 @@
      </select>
    </div>
    <div class="col-md-4">
-     <select v-model="sensorId" v-on:change="fetchSensorTimeSeries(sensorId)">
-       <option v-for="sensor in sensors" v-bind:value="sensor.sensorId">
-         {{sensor.sensorId}}
+     <select v-model="sensorDeployedId" v-on:change="fetchSensorTimeSeries(sensorDeployedId)">
+       <option v-for="sensor in sensors" v-bind:value="sensor.sensorDeployedId">
+         {{sensor.sensorDeployedId}}
        </option>
      </select>
    </div>
