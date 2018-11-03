@@ -34,6 +34,7 @@ footer{
   width:75px;
   margin-right: 20px;
 }
-.clientTable, #clientNotesTable, h2, h5, #turbineTable {
+.clientTable, #clientNotesTable, h2, h4, h5, #turbineTable {
   margin-left: 1%;
+  padding: 5px;
 }
