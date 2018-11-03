@@ -117,7 +117,7 @@ var turbineApp = new Vue({
                            y2: 1
                        },
                        stops: [
-                           [0, "#2d9d47"],
+                           [0, "#E9967A"],
                            [1, "#006440"]
                        ]
                    },
@@ -196,7 +196,7 @@ var turbineApp = new Vue({
        },
        series: [{
            name: 'Heat Rate',
-           color: 'rgba(223, 83, 83, .5)',
+           color: 'rgba(220, 20, 60)',
            data: turbineApp.sensorTime.map( entry=>
              [entry.output, entry.heatRate]
            )
