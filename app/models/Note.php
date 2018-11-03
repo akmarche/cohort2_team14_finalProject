@@ -29,7 +29,7 @@ class Note
 
   public function addNotes() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT ClientNotes (clientName, notes)
+    $sql = 'INSERT ClientNotes (clientName, meetingDate,notes)
             VALUES (?, ?)';
     $statement = $db->prepare($sql);
     $success = $statement->execute([
