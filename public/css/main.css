@@ -35,5 +35,5 @@ footer{
   margin-right: 20px;
 }
 h2, .clientTable, #clientNotesTable{
-  padding: 1%;
+  padding-left: 1%;
 }
