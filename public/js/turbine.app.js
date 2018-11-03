@@ -395,7 +395,7 @@ var turbineApp = new Vue({
                        },
                        stops: [
                            [0,'#355c7d'],
-                           [1, '#6c5b7b']
+                           [1, '#228B22']
                        ]
                    },
                    marker: {
@@ -449,7 +449,7 @@ var turbineApp = new Vue({
                        },
                        stops: [
                            [0, '#79bd8f'],
-                           [1, '#c3c2f2']
+                           [1, '#008080']
                        ]
                    },
                    marker: {
