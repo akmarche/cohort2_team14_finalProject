@@ -60,7 +60,7 @@
 </table>
 <br />
 <h2>Client Notes Table</h2>
-<table class="table table-hover">
+<table class="table table-hover" id="clientNotesTable">
 <thead>
 <tr>
 <th scope="col">#</th>
@@ -142,5 +142,10 @@
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="js/client.app.js"></script>
+      <script src='js/tablesort.min.js'></script>
+      <script>
+      //tablesort plug from http://tristen.ca/tablesort/demo/
+        new Tablesort(document.getElementById('clientNotesTable'));
+      </script>
   </body>
   </html>
