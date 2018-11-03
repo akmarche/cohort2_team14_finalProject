@@ -496,7 +496,19 @@ var turbineApp = new Vue({
              column: {
               pointPadding: 0.2,
               borderWidth: 0
-          }
+          },
+          fillColor: {
+              linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+              },
+              stops: [
+                  [0, '#DA70D6'],
+                  [1, '#008080']
+              ]
+          },
            },
            series: [{
                type: 'area',
@@ -530,7 +542,19 @@ var turbineApp = new Vue({
             column: {
              pointPadding: 0.2,
              borderWidth: 0
-         }
+         },
+         fillColor: {
+             linearGradient: {
+                 x1: 0,
+                 y1: 0,
+                 x2: 0,
+                 y2: 1
+             },
+             stops: [
+                 [0, '#9370DB'],
+                 [1, '#008080']
+             ]
+         },
           },
           series: [{
               type: 'area',
