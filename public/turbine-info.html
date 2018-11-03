@@ -60,7 +60,8 @@
 </table>
 <h4 class="kpi-header">Key Performance Indicator Dashboard</h4>
 <div id="agsKPI">
-   <label for="country" class="col-md-3 col-form-label">Select Turbine</label>
+  <h5 class="client-header">Select the Deployed Turbine for KPI</h4>
+   <label for="country" class="col-md-3 col-form-label"></label>
    <div class="col-md-4">
      <select v-model="turbineId" v-on:change="fetchSensor(turbineId)">
        <option v-for="turbine in turbines" v-bind:value="turbine.turbineId">
@@ -69,7 +70,7 @@
      </select>
    </div>
    <br />
-   <h4 class="client-header">Select the Deployed Sensor for KPI</h4>
+   <h5 class="client-header">Select the Deployed Sensor for KPI</h5>
    <div class="col-md-4">
      <select v-model="sensorDeployedId" v-on:change="fetchSensorTimeSeries(sensorDeployedId)">
        <option v-for="sensor in sensors" v-bind:value="sensor.sensorDeployedId">
